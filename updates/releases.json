@@ -1,0 +1,24 @@
+[
+  {
+    "tag_name": "v1.0.1",
+    "name": "JingKong v1.0.1",
+    "body": "界面与稳定性修复：投屏顶栏只保留居中刘海、移除遮挡 iOS 状态栏的常驻停止按钮，控制栏居中并收窄唤醒区；待机态大圆角与启动尺寸修正；断链阈值调整与主机卡顿判别，重连不再重挂旧帧；新增帧率/延迟浮层与「回到桌面」。\n\nUI and stability fixes: centered mirroring header with clear sides, reconnect thresholds and stall detection, no stale frames after recovery, new FPS/latency overlay and Home action.",
+    "published_at": "2026-11-14T02:08:00Z",
+    "draft": false,
+    "prerelease": false,
+    "assets": [
+      {
+        "name": "JingKong-v1.0.1-win-x64.zip",
+        "size": 243193872,
+        "digest": "sha256:f2bb1a651d812cb48507f2d689c5dbfc78076e744f1547a96196a865538110b1",
+        "browser_download_url": "https://github.com/neview/JingKong/releases/download/v1.0.1/JingKong-v1.0.1-win-x64.zip"
+      },
+      {
+        "name": "SHA256SUMS.txt",
+        "size": 94,
+        "digest": "",
+        "browser_download_url": "https://github.com/neview/JingKong/releases/download/v1.0.1/SHA256SUMS.txt"
+      }
+    ]
+  }
+]
