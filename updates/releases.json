@@ -1,23 +1,23 @@
 [
   {
-    "tag_name": "v1.0.1",
-    "name": "JingKong v1.0.1",
-    "body": "界面与稳定性修复：投屏顶栏只保留居中刘海、移除遮挡 iOS 状态栏的常驻停止按钮，控制栏居中并收窄唤醒区；待机态大圆角与启动尺寸修正；断链阈值调整与主机卡顿判别，重连不再重挂旧帧；新增帧率/延迟浮层与「回到桌面」。\n\nUI and stability fixes: centered mirroring header with clear sides, reconnect thresholds and stall detection, no stale frames after recovery, new FPS/latency overlay and Home action.",
-    "published_at": "2026-11-14T02:08:00Z",
+    "tag_name": "v1.0.2",
+    "name": "JingKong v1.0.2",
+    "body": "修复有线投屏「一键安装全部驱动」反复出现、装完卡在「等待设备重新连接…」以及重连后 iPhone 从系统消失的问题：安装采集过滤器前先释放 Apple Mobile Device Service，使设备重启不再被否决、过滤器一次装好即生效；过滤器已加载时不再要求拔插。\n\nFixes the wired-mirroring loop where the driver prompt kept reappearing and the iPhone dropped off the system after reconnecting: Apple Mobile Device Service is now released around the filter install so the parent restart is not vetoed, and no replug is requested once the filter is loaded.",
+    "published_at": "2026-11-16T02:17:30Z",
     "draft": false,
     "prerelease": false,
     "assets": [
       {
-        "name": "JingKong-v1.0.1-win-x64.zip",
-        "size": 243193872,
-        "digest": "sha256:f2bb1a651d812cb48507f2d689c5dbfc78076e744f1547a96196a865538110b1",
-        "browser_download_url": "https://github.com/neview/JingKong/releases/download/v1.0.1/JingKong-v1.0.1-win-x64.zip"
+        "name": "JingKong-v1.0.2-win-x64.zip",
+        "size": 243247650,
+        "digest": "sha256:162b8ce1cd799ab4b84ce4eb611c92b2f7b97c4163b5c8e2913ab66b7027df5d",
+        "browser_download_url": "https://github.com/neview/JingKong/releases/download/v1.0.2/JingKong-v1.0.2-win-x64.zip"
       },
       {
         "name": "SHA256SUMS.txt",
         "size": 94,
         "digest": "",
-        "browser_download_url": "https://github.com/neview/JingKong/releases/download/v1.0.1/SHA256SUMS.txt"
+        "browser_download_url": "https://github.com/neview/JingKong/releases/download/v1.0.2/SHA256SUMS.txt"
       }
     ]
   }
