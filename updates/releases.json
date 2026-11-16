@@ -1,23 +1,23 @@
 [
   {
-    "tag_name": "v1.0.2",
-    "name": "JingKong v1.0.2",
-    "body": "修复有线投屏「一键安装全部驱动」反复出现、装完卡在「等待设备重新连接…」以及重连后 iPhone 从系统消失的问题：安装采集过滤器前先释放 Apple Mobile Device Service，使设备重启不再被否决、过滤器一次装好即生效；过滤器已加载时不再要求拔插。\n\nFixes the wired-mirroring loop where the driver prompt kept reappearing and the iPhone dropped off the system after reconnecting: Apple Mobile Device Service is now released around the filter install so the parent restart is not vetoed, and no replug is requested once the filter is loaded.",
-    "published_at": "2026-11-16T02:17:30Z",
+    "tag_name": "v1.0.3",
+    "name": "JingKong v1.0.3",
+    "body": "修复窗口大圆角被外部工具清掉后不再恢复、副屏上顶部控制栏唤不出也拖不动、首帧窗口尺寸抖动三个问题。\n\nFixes: window silhouette (rounded corners) now self-heals within 1s when an external tool clears the window region; the top hover bar follows the owner by device pixels so it works across monitors with different DPI; the first-frame window resize loop is suppressed.",
+    "published_at": "2026-11-16T02:52:50Z",
     "draft": false,
     "prerelease": false,
     "assets": [
       {
-        "name": "JingKong-v1.0.2-win-x64.zip",
-        "size": 243247650,
-        "digest": "sha256:162b8ce1cd799ab4b84ce4eb611c92b2f7b97c4163b5c8e2913ab66b7027df5d",
-        "browser_download_url": "https://github.com/neview/JingKong/releases/download/v1.0.2/JingKong-v1.0.2-win-x64.zip"
+        "name": "JingKong-v1.0.3-win-x64.zip",
+        "size": 243248598,
+        "digest": "sha256:5ad98bf01bc4c429941f4c55d13ea3787dae8ecb49a3a05d905f06d7cc221d86",
+        "browser_download_url": "https://github.com/neview/JingKong/releases/download/v1.0.3/JingKong-v1.0.3-win-x64.zip"
       },
       {
         "name": "SHA256SUMS.txt",
         "size": 94,
         "digest": "",
-        "browser_download_url": "https://github.com/neview/JingKong/releases/download/v1.0.2/SHA256SUMS.txt"
+        "browser_download_url": "https://github.com/neview/JingKong/releases/download/v1.0.3/SHA256SUMS.txt"
       }
     ]
   }
