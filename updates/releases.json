@@ -1,5 +1,27 @@
 [
   {
+    "tag_name": "v1.0.7",
+    "name": "JingKong v1.0.7",
+    "body": "# JingKong v1.0.7\n\n正式版，面向 Windows 10/11 x64。\n\n本版只有一件事：**把空闲时的 CPU 占用降下来**。没有界面改版，也没有新功能。\n\n## 修复：不投屏时的 CPU 占用从约 23% 降到约 6%\n\n待机页（添加/等待手机那个界面）上有几处装饰动画：呼吸光晕、摆动数据线、液面波浪与气泡。它们由界面加载事件启动、循环播放，问题在于——\n\n- WPF 不会因为元素被隐藏就停掉动画时钟。**开始投屏后待机页已经折叠，这些动画仍在按 60fps 逐帧推进**，与视频解码、渲染抢 CPU；\n- 窗口最小化到任务栏后同样在跑。\n\n修复方式：\n\n1. 待机页不可见、窗口不可见或最小化时暂停这些动画，恢复显示时继续（保留相位，不会从头跳一下）；\n2. 这些动画都是慢速氛围动效（0.9~2.8 秒一个周期），帧率限制到 20fps，肉眼几乎无差别。\n\n实测（Windows 10.0.26200，未连接手机，同一台机器）：\n\n| 状态 | 修复前 | 修复后 |\n|---|---|---|\n| 待机可见 | 22.4 / 23.5 / 24.8 %（三次） | 6.0 ~ 6.6 % |\n| 最小化 | 约 24 % | 4.8 ~ 5.9 % |\n\n内存无明显变化（工作集约 215 MB，私有约 165 MB）。\n\n> 剩余的 4~5% 主要来自每 2 秒一次的设备与无线状态刷新（对照实验：把周期临时放长到 10 秒，CPU 从 6.0% 降到 4.0%）。这个周期直接决定插拔手机的识别速度，本版没有动。\n\n## 升级方式\n\n打开软件 → 检测到新版本 → 立即更新。也可以直接下载本页的 `JingKong-v1.0.7-win-x64.zip`，解压覆盖安装目录（`%LOCALAPPDATA%\\iPhoneMirror` 下的配置与配对信息会保留）。\n\n## 已知限制\n\n- 投屏过程中关闭软件仍需数秒（把 iPhone 的 USB 配置恢复回正常状态），这是设备重新枚举的固有耗时。\n- 设备栈异常（全部 Apple 接口变为 Unknown）时仍需重新插拔数据线。\n- 退出后立刻重新启动，iPhone 可能需要约 40 秒才重新出现在设备列表。\n",
+    "published_at": "2026-11-17T06:28:03Z",
+    "draft": false,
+    "prerelease": false,
+    "assets": [
+      {
+        "name": "JingKong-v1.0.7-win-x64.zip",
+        "size": 243294005,
+        "digest": "sha256:d1e020788965e8a15d832fe0465ae25c803c576e69b236cafa7ad191fdd6bc84",
+        "browser_download_url": "https://github.com/neview/JingKong/releases/download/v1.0.7/JingKong-v1.0.7-win-x64.zip"
+      },
+      {
+        "name": "SHA256SUMS.txt",
+        "size": 95,
+        "digest": "sha256:66268afb42d5861d3cbaf0c4134f553155a7ef4c2da9e90ca0721629ad830e4b",
+        "browser_download_url": "https://github.com/neview/JingKong/releases/download/v1.0.7/SHA256SUMS.txt"
+      }
+    ]
+  },
+  {
     "tag_name": "v1.0.6",
     "name": "JingKong v1.0.6",
     "body": "## 更新检查修复\n\n- 修复 GitHub 匿名接口配额被打满（`403 rate limit exceeded`）时更新检查静默失败、用户永远收不到新版本提示的问题。此前只要出口 IP 的 60 次/小时额度用完（代理节点被多人共用时很常见），软件就再也查不到新版本。\n- 自有端点（GitHub API + 仓库内静态清单 `updates/releases.json`）现在任何情况下都会尝试，\"镜像回退\"开关只控制第三方镜像，不再影响自建线路。\n- 静态清单可能落后于线上时，不再\"先到先得\"覆盖已有结果，而是取各来源里版本号最高的一个；端点全部失败时回退到过期缓存，而不是直接放弃。\n- 同步 `updates/releases.json`：该清单此前漏更新，线上一直停留在 v1.0.3，导致兜底线路也查不到 v1.0.5。\n\n## Update check fixes\n\n- Fixed silent update-check failure when the anonymous GitHub API quota is exhausted (`403 rate limit exceeded`) — previously a single busy egress IP (shared proxy nodes especially) would hide every future release.\n- First-party endpoints (GitHub API plus the static manifest at `updates/releases.json`) are now always attempted; the mirror fallback switch only governs third-party mirrors.\n- A stale static manifest can no longer win over a newer source: the highest version across endpoints and cache is used, and an expired cache is returned when every endpoint fails.\n- Synced `updates/releases.json`, which had been left at v1.0.3 and therefore could not advertise v1.0.5 to the fallback path.\n",
